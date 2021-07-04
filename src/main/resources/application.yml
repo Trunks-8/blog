@@ -11,4 +11,6 @@ spring:
       hibernate:
         enable_lazy_load_no_trans: true
 
+comment.avatar: /images/zhutou.jpg
+
 

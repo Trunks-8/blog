@@ -29,7 +29,7 @@ public class CommentController {
     private BlogService blogService;
 
     //用户图片 ${comment.avatar} --> {comment.avatar}
-    @Value("{comment.avatar}")
+    @Value("${comment.avatar}")
     private String avatar;
 
     @GetMapping("/comments/{blogId}")

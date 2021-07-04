@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签页面</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" />
+    <link rel="stylesheet" href="../static/css/me.css" />
+    <link rel="stylesheet" href="../static/css/animate.css" />
+</head>
+<body>
+    
+    <!-- 导航标签 -->
+    <nav th:replace="_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui pink header item">Zhutou-Blog</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="active m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="archive icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="exclamation icon"></i>About me</a>
+                <div class="right m-item item m-mobile-hide">
+                    <!-- search -->
+                    <!-- ui icon inverted transparent input -->
+                    <div class="ui icon input">
+                        <input type="text" placeholder="search...">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ui inverted icon button -->
+        <a href="#" class="ui menu toggle pink icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!-- 中间内容 -->
+    <div class="m-container-small m-padded-tb-big animated fadeIn">
+        <div class="ui container">
+            <!-- header 分类 -->
+            <div class="ui top attached segment">
+                <div class="ui middle aligned two column grid">
+                    <!-- 第1列 -->
+                    <div class="column">
+                        <h3 class="ui green header">Zhutou-Blog-Tags</h3>
+                    </div>
+                    <!-- 第2列 -->
+                    <div class="right aligned column">
+                        Have <h3 class="ui pink header m-inline-block m-text-thin" th:text="${#arrays.length(tags)}">14</h3> Tags
+                    </div>
+                </div>
+            </div>
+            <!-- center1 -->
+            <div class="ui attached segment m-padded-tb-large">
+                <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" th:classappend="${tag.id==activeTagId} ? 'pink'" th:each="tag : ${tags}" target="_blank" class="ui pink basic left pointing large label m-margin-tb-tiny">
+                    <span th:text="${tag.name}">Big-pig</span>
+                    <div class="detail" th:text="${#arrays.length(tag.blogs)}">24</div>
+                </a>
+<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
+<!--                    Big Pig log<div class="detail">26</div>-->
+<!--                </a>-->
+<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
+<!--                    Large Pig log<div class="detail">30</div>-->
+<!--                </a>-->
+<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
+<!--                    Zhutou log<div class="detail">30</div>-->
+<!--                </a>-->
+<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
+<!--                    Tiny Zhutou log<div class="detail">22</div>-->
+<!--                </a>-->
+<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
+<!--                    Small Zhutou log<div class="detail">30</div>-->
+<!--                </a>-->
+<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
+<!--                    Big Zhutou log<div class="detail">12</div>-->
+<!--                </a>-->
+<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
+<!--                    Large Zhutou log<div class="detail">18</div>-->
+<!--                </a>-->
+            </div>
+            <!-- center2 -->
+            <div class="ui top attached pink segment">
+                <div class="ui padded vertical segment m-padded-tb-big m-mobile-lr-clear" th:each="blog : ${page.content}">
+                        <div class="ui mobile reversed stackable grid">
+                            <!-- text content left -->
+                            <div class="eleven wide column">
+                                <h3 class="ui header">
+                                    <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">
+                                        Are you really a big pig?
+                                    </a>
+                                </h3>
+                                <p class="m-text" th:text="|${blog.description}......|">
+                                    A big pig's head is a doll with a big head and a pig
+                                    living in it.Have you ever called someone or been 
+                                    called a "big pig's head"?Does the girl call the 
+                                    guy "big pig's head" prove that she was attracted 
+                                    to him?Will girls casually call boys "big pig head"?
+                                    In what kind of psychological state, the girl will 
+                                    call the boy "big pig head"?What exactly does "big 
+                                    pig's head" mean? What are some of the same or more 
+                                    representative names?
+                                </p>
+                                <div class="ui stackable grid">
+                                    <!-- text content left footer -->
+                                    <div class="row">
+                                        <div class="eleven wide column">
+                                            <div class="ui horizontal link list">
+                                               <div class="item">
+                                                    <img src="https://picsum.photos/100/100?blur" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class="header" th:text="${blog.user.nickname}" >Zhutou Yin</a>
+                                                    </div>
+                                               </div>
+                                               <div class="item">
+                                                   <i class="calendar icon"></i>
+                                                   <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2021-06-13</span>
+                                               </div>
+                                               <div class="item">
+                                                   <i class="eye icon"></i>
+                                                   <span th:text="${blog.views}">24</span>
+                                               </div>
+                                            </div>
+                                        </div>
+                                        <!-- text content right footer -->
+                                        <div class="right aligned five wide column">
+                                            <a href="#" class="ui pink basic label m-padded-tb-tiny" target="_blank" th:text="${blog.type.name}">
+                                                Big-Pig
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="column">
+                                            <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" th:classappend="${tag.id==activeTagId} ? 'teal'" th:each="tag : ${blog.tags}" th:text="${tag.name}" class="ui mini basic pink left pointing label">
+                                                Big-Pig
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- text content right -->
+                            <div class="five wide column">
+                                <a href="#" target="_blank" th:href="@{/blog/{id}(id=${blog.id})}">
+                                    <img src="https://picsum.photos/800/450?grayscale" alt="" th:src="@{${blog.firstPicture}}" class="ui rounded image">
+                                </a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+<!--                <div class="ui padded vertical segment m-padded-tb-big m-mobile-lr-clear">  -->
+<!--                    <div class="ui mobile reversed stackable grid">-->
+<!--                        &lt;!&ndash; text content left &ndash;&gt;-->
+<!--                        <div class="eleven wide column">-->
+<!--                            <h3 class="ui header">Yes, I am a big fat pig!</h3>-->
+<!--                            <p class="m-text">As an omnivorous animal, I can eat leftovers, -->
+<!--                                fruits, bean skins and other food. In artificial breeding, -->
+<!--                                I mostly feed artificial compound feed to pigs, which can -->
+<!--                                promote the growth of pigs.Pigs also have a preference for -->
+<!--                                sweet food. Pigs prefer to eat granulated food compared -->
+<!--                                with powder food. Pigs prefer to eat wet food compared with -->
+<!--                                dry food.Pigs often eat feed will lead to gastrointestinal -->
+<!--                                indigestion of pigs, can be properly fed some green plants -->
+<!--                                to help the digestion of pigs.-->
+<!--                            </p>-->
+<!--                            <div class="ui stackable grid">-->
+<!--                                &lt;!&ndash; text content left footer &ndash;&gt;-->
+<!--                                <div class="row">-->
+<!--                                    <div class="eleven wide column">-->
+<!--                                        <div class="ui horizontal link list">-->
+<!--                                           <div class="item">-->
+<!--                                                <img src="../static/images/zhutou.jpg" th:src="@{/images/zhutou.jpg}" alt="" class="ui avatar image">-->
+<!--                                                <div class="content">-->
+<!--                                                    <a href="#" class="header">Zhutou Yin</a>-->
+<!--                                                </div>-->
+<!--                                           </div>-->
+<!--                                           <div class="item">-->
+<!--                                               <i class="calendar icon"></i> 2021-06-13-->
+<!--                                           </div>-->
+<!--                                           <div class="item">-->
+<!--                                               <i class="eye icon"></i>  24-->
+<!--                                           </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; text content right footer &ndash;&gt;-->
+<!--                                    <div class="right aligned five wide column">-->
+<!--                                        <a href="#" class="ui pink basic label m-padded-tb-tiny" target="_blank">-->
+<!--                                            Big-Pig-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row">-->
+<!--                                    <div class="column">-->
+<!--                                        <a href="#" class="ui mini basic pink left pointing label">Big-Pig</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; text content right &ndash;&gt;-->
+<!--                        <div class="five wide column">-->
+<!--                            <a href="#" target="_blank">-->
+<!--                                <img src="https://picsum.photos/800/450?grayscale" alt="" class="ui rounded image">-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="ui padded vertical segment m-padded-tb-big m-mobile-lr-clear">  -->
+<!--                <div class="ui mobile reversed stackable grid">-->
+<!--                    &lt;!&ndash; text content left &ndash;&gt;-->
+<!--                    <div class="eleven wide column">-->
+<!--                        <h3 class="ui header">我还是一只懒动的猪！</h3>-->
+<!--                        <p class="m-text">慢跑、篮球、足球等我都不喜欢，标枪、跳远等运动-->
+<!--                            我也不擅长！认识我的朋友都知道，我是一个吃货，一个应该还算资深的-->
+<!--                            吃货。当有新的朋友知道我吃货的身份的时候，他们的反应也是各式各样，-->
+<!--                            有时还会让我哭笑不得。其中一种就是，“你那么会吃，怎么你都不胖啊？”-->
+<!--                            这类朋友我猜一定是把”会吃”和“能吃”混淆了吧......我是比较会吃，-->
+<!--                            但是其实我吃得并不多,我崇尚少量多餐的原则，一天吃五顿，但是每顿大概-->
+<!--                            就吃六七分饱，我真是怕死了那种吃撑了的感觉，那是对美食的亵渎。第二种-->
+<!--                            就是，每当吃东西不好吃大家都不想吃的时候就会有人说:“你那么会吃，就把-->
+<!--                            剩下的吃完吧！”想到这里我真的是想破口大骂，我喜欢吃的是美食，都没人吃-->
+<!--                            的东西留下来扔给我是怎么回事？还有一种特别烦人，就是要你推荐好吃的地方，-->
+<!--                            其实这点还好，能毫无私心的分享心目中的美食对我们吃货来说也是一种幸福。-->
+<!--                            最烦的是去了之后回来各种埋怨，说这个不好吃那个环境不好的，每个人去吃的-->
+<!--                            体验都不一样，所以如果你去了我推荐的餐厅觉得满意就告诉我让我开心开心，-->
+<!--                            不满意就心平气和地说说不满意的地方，别在我面前说我这个怪我那个......-->
+<!--                        </p>-->
+<!--                        <div class="ui stackable grid">-->
+<!--                            &lt;!&ndash; text content left footer &ndash;&gt;-->
+<!--                            <div class="row">-->
+<!--                                <div class="eleven wide column">-->
+<!--                                    <div class="ui horizontal link list">-->
+<!--                                       <div class="item">-->
+<!--                                            <img src="../static/images/zhutou.jpg" th:src="@{/images/zhutou.jpg}" alt="" class="ui avatar image">-->
+<!--                                            <div class="content">-->
+<!--                                                <a href="#" class="header">Zhutou Yin</a>-->
+<!--                                            </div>-->
+<!--                                       </div>-->
+<!--                                       <div class="item">-->
+<!--                                           <i class="calendar icon"></i> 2021-06-13-->
+<!--                                       </div>-->
+<!--                                       <div class="item">-->
+<!--                                           <i class="eye icon"></i>  24-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; text content right footer &ndash;&gt;-->
+<!--                                <div class="right aligned five wide column">-->
+<!--                                    <a href="#" class="ui pink basic label m-padded-tb-tiny" target="_blank">-->
+<!--                                        Big-Pig-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="row">-->
+<!--                                <div class="column">-->
+<!--                                    <a href="#" class="ui mini basic pink left pointing label">Big-Pig</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; text content right &ndash;&gt;-->
+<!--                    <div class="five wide column">-->
+<!--                        <a href="#" target="_blank">-->
+<!--                            <img src="https://picsum.photos/800/450?grayscale" alt="" class="ui rounded image">-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                </div>   -->
+<!--            </div>-->
+            <!-- center footer -->
+            <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+                <div class="ui middle aligned two column grid">
+                    <!-- 第1列 -->
+                    <div class="column">
+                        <a href="#" class="ui tiny pink basic button" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}"  th:unless="${page.first}">上一页</a>
+                    </div>
+                    <!-- 第2列 -->
+                    <div class="right aligned column">
+                        <a href="#" class="ui tiny pink basic button" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}"  th:unless="${page.last}">下一页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部内容 -->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <!-- footer left1 -->
+            <div class="three wide column">
+                <div class="ui link list">
+                    <div class="item">
+                        <img src="../static/images/MyWeChat.JPG" class="ui rounded image" style="width:10em" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- footer left2 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header" style="color:pink">New Blog</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">User Story1</a>
+                    <a href="#" class="item">User Story2</a>
+                    <a href="#" class="item">User Story3</a>
+                </div>
+            </div>
+            <!-- footer right1 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header" style="color:pink">Contact me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">QQ:1944134467</a>
+                    <a href="#" class="item">Email:1944134467@qq.com</a>
+                    <a href="#" class="item">User Story</a>
+                </div>
+            </div>
+            <!-- footer right2 -->
+            <div class="seven wide column">
+                <h4 class="ui inverted header" style="color:pink">Share Blog</h4>
+                <div class="ui inverted link list">
+                    <p class="m-opacity-mini">
+                        This is my personal blog, here I will share
+                        about my programming learning, thinking and
+                        other content, I hope to give you a little
+                        help, but also hope you can give me some
+                        guidance, common progress.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @2020-2021 Zhutou-Blog by Luca</p>
+</footer>
+
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <!--/*/<th:block>/*/-->
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide'); 
+        });
+    </script>
+    
+</body>
+</html>

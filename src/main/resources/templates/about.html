@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我页面</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" />
+    <link rel="stylesheet" href="../static/css/me.css" />
+    <link rel="stylesheet" href="../static/css/animate.css" />
+</head>
+<body>
+    
+    <!-- 导航标签 -->
+    <nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui pink header item">Zhutou-Blog</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="archive icon"></i>归档</a>
+                <a href="#" class="active m-item item m-mobile-hide"><i class="exclamation icon"></i>About me</a>
+                <div class="right m-item item m-mobile-hide">
+                    <!-- search -->
+                    <!-- ui icon inverted transparent input -->
+                    <div class="ui icon input">
+                        <input type="text" placeholder="search...">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ui inverted icon button -->
+        <a href="#" class="ui menu toggle pink icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!-- 中间内容 -->
+    <div class="m-container-small m-padded-tb-big animated fadeIn">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <!-- left content -->
+                <div class="eleven wide column">
+                    <!-- left top -->
+                    <div class="ui segment">
+                        <img src="../static/images/zhutou.jpg" th:src="@{/images/zhutou.jpg}" style="width: 800px; height: 600px;" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                <!-- right content -->
+                <div class="five wide column">
+                    <!-- right top1 -->
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <!-- right top2 -->
+                    <div class="ui attached segment">
+                        <p class="m-text">I am pig head Yin, love to eat pig head Yin!</p>
+                    </div>
+                    <!-- right top3 -->
+                    <div class="ui attached segment">
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Program</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Eat</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Play</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Shopping</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Study</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Sleep</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Writing</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Sport</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">Reading</div>
+                        <div class="ui pink basic left pointing label m-margin-tb-tiny">......</div>
+                    </div>
+                    <!-- right top4 -->
+                    <div class="ui attached segment">
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Java</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Apple</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Pear</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Spicy Hot Pot</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Hot Pot</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Boiled Fish</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Milk Tea</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">Spicy Strip</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">......</div>
+                    </div>
+                    <!-- right top5 -->
+                    <div class="ui buttom attached segment">
+                        <a href="#" class="ui WeChat circular icon button"><i class="large weixin icon"></i></a>
+                        <a href="#" class="ui Qq circular icon button"><i class="large qq icon"></i></a>
+                        <a href="#" class="ui Github circular icon button" data-content="Trunks148"><i class="large github icon"></i></a>
+                    </div>
+                    <!-- WeChatQR -->
+                    <div class="ui WeChatQR flowing popup transition hidden m-right-top">
+                        <img src="./images/MyWeChat.JPG" th:src="@{/images/MyWeChat.JPG}" alt="" class="ui rounded image" style="width: 110px;">
+                    </div>
+                    <!-- QqQR -->
+                    <div class="ui QqQR flowing popup transition hidden m-right-top">
+                        <img src="./images/MyWeChat.JPG" th:src="@{/images/MyWeChat.JPG}" alt="" class="ui rounded image" style="width: 110px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部footer -->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <!-- footer left1 -->
+                <div class="three wide column">
+                    <div class="ui link list">
+                        <div class="item">
+                            <img src="../static/images/MyWeChat.JPG" class="ui rounded image" style="width:10em" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- footer left2 -->
+                <div class="three wide column">
+                    <h4 class="ui inverted header" style="color:pink">New Blog</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">User Story1</a>
+                        <a href="#" class="item">User Story2</a>
+                        <a href="#" class="item">User Story3</a>
+                    </div>
+                </div>
+                <!-- footer right1 -->
+                <div class="three wide column">
+                    <h4 class="ui inverted header" style="color:pink">Contact me</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">QQ:1944134467</a>
+                        <a href="#" class="item">Email:1944134467@qq.com</a>
+                        <a href="#" class="item">User Story</a>
+                    </div>
+                </div>
+                <!-- footer right2 -->
+                <div class="seven wide column">
+                    <h4 class="ui inverted header" style="color:pink">Share Blog</h4>
+                    <div class="ui inverted link list">
+                        <p class="m-opacity-mini">
+                            This is my personal blog, here I will share 
+                            about my programming learning, thinking and 
+                            other content, I hope to give you a little 
+                            help, but also hope you can give me some 
+                            guidance, common progress.
+                        </p>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @2020-2021 Zhutou-Blog by Luca</p>
+    </footer>
+
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide'); 
+        });
+
+        $('.WeChat').popup({
+            popup: $('.WeChatQR.popup'),
+            position: 'bottom center'
+        });
+
+        $('.Qq').popup({
+            popup: $('.QqQR.popup'),
+            position: 'bottom center'
+        });
+
+        $('.Github').popup();
+    </script>
+    
+</body>
+</html>

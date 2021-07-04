@@ -55,33 +55,38 @@
             <!-- center1 -->
             <div class="ui attached segment m-padded-tb-large">
                 <div class="ui labeled button m-margin-tb-small" th:each="type : ${types}">
-                    <a href="#" class="ui basic pink button" th:href="@{/types/{id}(id=${type.id})}" th:classappend="${type.id==activeTypeId} ? 'pink'" th:text="${type.name}">Big-Pig</a>
-                    <div class="ui basic pink left pointing label" th:classappend="${type.id==activeTypeId} ? 'pink'" th:text="${#arrays.length(type.blogs)}">24</div>
+                    <a href="#" class="ui basic blue button" th:href="@{/types/{id}(id=${type.id})}"
+                       th:classappend="${type.id==activeTypeId} ? 'pink'" th:text="${type.name}">Big-Pig</a>
+                    <div class="ui basic blue left pointing label" th:classappend="${type.id==activeTypeId} ? 'pink'"
+                         th:text="${#arrays.length(type.blogs)}">24
+                    </div>
                 </div>
-<!--                <div class="ui labeled button m-margin-tb-small">-->
-<!--                    <a href="#" class="ui basic button">Zhutou learnings</a>-->
-<!--                    <div class="ui basic left pointing label">18</div>-->
-<!--                </div>-->
-<!--                <div class="ui labeled button m-margin-tb-small">-->
-<!--                    <a href="#" class="ui basic button">Zhutou hopings</a>-->
-<!--                    <div class="ui basic left pointing label">14</div>-->
-<!--                </div>-->
-<!--                <div class="ui labeled button m-margin-tb-small">-->
-<!--                    <a href="#" class="ui basic button">Zhutou shoppings</a>-->
-<!--                    <div class="ui basic left pointing label">16</div>-->
-<!--                </div>-->
-<!--                <div class="ui labeled button m-margin-tb-small">-->
-<!--                    <a href="#" class="ui basic button">Zhutou playings</a>-->
-<!--                    <div class="ui basic left pointing label">9</div>-->
-<!--                </div>-->
-<!--                <div class="ui labeled button m-margin-tb-small">-->
-<!--                    <a href="#" class="ui basic button">Zhutou goings</a>-->
-<!--                    <div class="ui basic left pointing label">13</div>-->
-<!--                </div>-->
-<!--                <div class="ui labeled button m-margin-tb-small">-->
-<!--                    <a href="#" class="ui basic button">Zhutou lookings</a>-->
-<!--                    <div class="ui basic left pointing label">16</div>-->
-<!--                </div>-->
+                <!--/*-->
+                <div class="ui labeled button m-margin-tb-small">
+                    <a href="#" class="ui basic button">Zhutou learnings</a>
+                    <div class="ui basic left pointing label">18</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-small">
+                    <a href="#" class="ui basic button">Zhutou hopings</a>
+                    <div class="ui basic left pointing label">14</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-small">
+                    <a href="#" class="ui basic button">Zhutou shoppings</a>
+                    <div class="ui basic left pointing label">16</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-small">
+                    <a href="#" class="ui basic button">Zhutou playings</a>
+                    <div class="ui basic left pointing label">9</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-small">
+                    <a href="#" class="ui basic button">Zhutou goings</a>
+                    <div class="ui basic left pointing label">13</div>
+                </div>
+                <div class="ui labeled button m-margin-tb-small">
+                    <a href="#" class="ui basic button">Zhutou lookings</a>
+                    <div class="ui basic left pointing label">16</div>
+                </div>
+                <!--*/-->
             </div>
             <!-- center2 -->
             <div class="ui top attached pink segment">

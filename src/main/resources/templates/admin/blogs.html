@@ -64,7 +64,7 @@
                         <div class="ui type selection dropdown">
                             <input type="hidden" name="typeId">
                             <i class="dropdown icon"></i>
-                            <div class="default text">分类</div>
+                            <div class="text">分类</div>
                             <div class="menu">
                                 <div class="item" th:each="type : ${types}" data-value="1" th:data-value="${type.id}" th:text="${type.name}">猪头</div>
                                 <div class="item" th:each="type : ${types}" data-value="2" th:data-value="${type.id}" th:text="${type.name}">大猪头</div>

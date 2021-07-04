@@ -54,31 +54,42 @@
             </div>
             <!-- center1 -->
             <div class="ui attached segment m-padded-tb-large">
-                <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" th:classappend="${tag.id==activeTagId} ? 'pink'" th:each="tag : ${tags}" target="_blank" class="ui pink basic left pointing large label m-margin-tb-tiny">
+                <a class="ui blue basic left pointing large label m-margin-tb-tiny" href="#"
+                   th:href="@{/tags/{id}(id=${tag.id})}" th:classappend="${tag.id==activeTagId} ? 'pink'"
+                   th:each="tag : ${tags}">
                     <span th:text="${tag.name}">Big-pig</span>
                     <div class="detail" th:text="${#arrays.length(tag.blogs)}">24</div>
                 </a>
-<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
-<!--                    Big Pig log<div class="detail">26</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
-<!--                    Large Pig log<div class="detail">30</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
-<!--                    Zhutou log<div class="detail">30</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
-<!--                    Tiny Zhutou log<div class="detail">22</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
-<!--                    Small Zhutou log<div class="detail">30</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
-<!--                    Big Zhutou log<div class="detail">12</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">-->
-<!--                    Large Zhutou log<div class="detail">18</div>-->
-<!--                </a>-->
+                <!--/*-->
+                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">
+                    Big Pig log
+                    <div class="detail">26</div>
+                </a>
+                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">
+                    Large Pig log
+                    <div class="detail">30</div>
+                </a>
+                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">
+                    Zhutou log
+                    <div class="detail">30</div>
+                </a>
+                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">
+                    Tiny Zhutou log
+                    <div class="detail">22</div>
+                </a>
+                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">
+                    Small Zhutou log
+                    <div class="detail">30</div>
+                </a>
+                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">
+                    Big Zhutou log
+                    <div class="detail">12</div>
+                </a>
+                <a href="#" target="_blank" class="ui basic left pointing label m-margin-tb-tiny">
+                    Large Zhutou log
+                    <div class="detail">18</div>
+                </a>
+                <!--*/-->
             </div>
             <!-- center2 -->
             <div class="ui top attached pink segment">

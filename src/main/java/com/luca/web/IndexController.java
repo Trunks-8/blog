@@ -39,12 +39,12 @@ public class IndexController {
      * @return
      */
     @GetMapping("/")
-    public String index(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         Model model) {
         model.addAttribute("page", blogService.listBlog(pageable));  //分页的数据
-        model.addAttribute("types", typeService.listTypeTop(6));  //分类
-        model.addAttribute("tags", tagService.listTagTop(6));  //标签
-        model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(6));  //最新推荐
+        model.addAttribute("types", typeService.listTypeTop(8));  //分类
+        model.addAttribute("tags", tagService.listTagTop(8));  //标签
+        model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));  //最新推荐
         return "index";
     }
 
@@ -56,7 +56,7 @@ public class IndexController {
      * @return
      */
     @PostMapping("/search")
-    public String search(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
+    public String search(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          @RequestParam String query, Model model) {
         model.addAttribute("page", blogService.listBlog("%" + query + "%", pageable));
         model.addAttribute("query", query);

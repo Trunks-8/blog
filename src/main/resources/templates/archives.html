@@ -59,54 +59,59 @@
                 <a th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
                     <span>
                         <i class="pink circle icon"></i><span th:text="${blog.title}">关于吃货的心得</span>
-                        <div class="ui pink basic left pointing label m-padded-tb-mini" th:text="${#dates.format(blog.updateTime,'MMMdd')}">
-                            December 22, 2020
+                        <div class="ui pink basic left pointing label m-padded-tb-mini"
+                             th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">
+                            2020-07-24
                         </div>
                     </span>
-                    <div class="ui blue basic left pointing label m-padded-tb-mini" th:text="${blog.flag}">原创</div>
+                    <div class="ui pink basic left pointing label m-padded-tb-mini" th:text="${blog.flag}">原创</div>
                 </a>
-<!--                <a href="#" target="_blank" class="item">-->
-<!--                    <span>-->
-<!--                        <i class="pink circle icon"></i>关于吃货的十大好处-->
-<!--                        <div class="ui pink basic left pointing label m-padded-tb-mini">December 22, 2020</div>-->
-<!--                    </span>-->
-<!--                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="item">-->
-<!--                    <span>-->
-<!--                        <i class="pink circle icon"></i>关于吃货的十大美食-->
-<!--                        <div class="ui pink basic left pointing label m-padded-tb-mini">December 22, 2020</div>-->
-<!--                    </span>-->
-<!--                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>-->
-<!--                </a>-->
+                <!--/*-->
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="pink circle icon"></i>关于吃货的十大好处
+                        <div class="ui pink basic left pointing label m-padded-tb-mini">2020-07-24</div>
+                    </span>
+                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="pink circle icon"></i>关于吃货的十大美食
+                        <div class="ui pink basic left pointing label m-padded-tb-mini">2020-07-24</div>
+                    </span>
+                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <!--*/-->
             </div>
             </th:block>
             <!-- center2 -->
-<!--            <h2 class="ui center aligned header" th:text="${item.key}">2021</h2>-->
-<!--            <div class="ui fluid vertical menu">-->
-<!--                <a href="#" target="_blank" class="item">-->
-<!--                    <span>-->
-<!--                        <i class="pink circle icon"></i>关于吃货的进阶法宝-->
-<!--                        <div class="ui pink basic left pointing label m-padded-tb-mini">January 22, 2021</div>-->
-<!--                    </span>-->
-<!--                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="item">-->
-<!--                    <span>-->
-<!--                        <i class="pink circle icon"></i>关于吃货的十大优势-->
-<!--                        <div class="ui pink basic left pointing label m-padded-tb-mini">January 22, 2020</div>-->
-<!--                    </span>-->
-<!--                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>-->
-<!--                </a>-->
-<!--                <a href="#" target="_blank" class="item">-->
-<!--                    <span>-->
-<!--                        <i class="pink circle icon"></i>关于吃货的自我修养-->
-<!--                        <div class="ui pink basic left pointing label m-padded-tb-mini">January 22, 2020</div>-->
-<!--                    </span>-->
-<!--                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>-->
-<!--                </a>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; center footer &ndash;&gt;-->
+            <!--/*-->
+            <h2 class="ui center aligned header" th:text="${item.key}">2021</h2>
+            <div class="ui fluid vertical menu">
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="pink circle icon"></i>关于吃货的进阶法宝
+                        <div class="ui pink basic left pointing label m-padded-tb-mini">January 22, 2021</div>
+                    </span>
+                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="pink circle icon"></i>关于吃货的十大优势
+                        <div class="ui pink basic left pointing label m-padded-tb-mini">January 22, 2020</div>
+                    </span>
+                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+                <a href="#" target="_blank" class="item">
+                    <span>
+                        <i class="pink circle icon"></i>关于吃货的自我修养
+                        <div class="ui pink basic left pointing label m-padded-tb-mini">January 22, 2020</div>
+                    </span>
+                    <div class="ui blue basic left pointing label m-padded-tb-mini">原创</div>
+                </a>
+            </div>
+            <!--*/-->
+            <!-- center footer -->
         </div>
     </div>
 

@@ -25,7 +25,7 @@ public class LogAspect {
 
     //@Pointcut：定义切入点，声明其为一个切面，用于拦截某些类
     //* com.luca.web.*.*() ：web下所有的类和方法
-    @Pointcut("execution(* com.lrm.web.*.*(..))")
+    @Pointcut("execution(* com.luca.web.*.*(..))")
     public void log() {
     }
 

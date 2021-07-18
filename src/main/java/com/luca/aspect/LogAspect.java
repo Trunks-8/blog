@@ -29,7 +29,6 @@ public class LogAspect {
     public void log() {
     }
 
-
     //在进行切面前执行该方法，切面：log()
     @Before("log()")
     public void doBefore(JoinPoint joinPoint) {
